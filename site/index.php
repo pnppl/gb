@@ -556,6 +556,7 @@ echo <<<'EOD'
 
 	// needed to debounce mobile drags
 	function pushCurrDrag(pix) {
+//		console.log("before: " + pixelHistory)
 		for (i = 0; i < currDrag.length; i++) {
 			if (currDrag[i] == pix) {
 				return;
@@ -564,6 +565,7 @@ echo <<<'EOD'
 		currDrag.push(pix);
 		pixelHistory.push(pix);
 		pixelFuture.length = 0;
+//		console.log("after: " + pixelHistory)
 	}
 
 	function setStraight(state) {
@@ -635,8 +637,7 @@ echo <<<'EOD'
 
 			firstPixelNum = firstPixel.id.replace('pixel', '');
 			pixelFuture.length = 0;
-			currDrag.length = 0;
-			pixelHistory.push(firstPixelNum);
+			pushCurrDrag(firstPixelNum);
 		}
 	}
 
@@ -656,8 +657,10 @@ echo <<<'EOD'
 					}
 				}
 
-				pixel.checked = !firstPixelWasOn;
-				pushCurrDrag(pixelNum);
+				if (pixel.checked != !firstPixelWasOn) {
+					pixel.checked = !firstPixelWasOn;
+					pushCurrDrag(pixelNum);
+				}
 			}
 		}
 	}
