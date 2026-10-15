@@ -556,7 +556,6 @@ echo <<<'EOD'
 
 	// needed to debounce mobile drags
 	function pushCurrDrag(pix) {
-//		console.log("before: " + pixelHistory)
 		for (i = 0; i < currDrag.length; i++) {
 			if (currDrag[i] == pix) {
 				return;
@@ -565,7 +564,6 @@ echo <<<'EOD'
 		currDrag.push(pix);
 		pixelHistory.push(pix);
 		pixelFuture.length = 0;
-//		console.log("after: " + pixelHistory)
 	}
 
 	function setStraight(state) {
@@ -691,23 +689,25 @@ echo <<<'EOD'
 	}
 
 	function desktopStart(e) {
-		startDraw(e);
-	}
-	
+		if (!isTouch()) {
+			startDraw(e);
+		}
+	}	
+
 	function mobileStart(e) {
-	}
+		if (isTouch()) {
+			startDraw(e);
+		}
+	}	
 
 	function desktopCont(e) {
-		if (e.pointerType == 'touch') {
-			return;
+		if (!isTouch()) {
+			contDraw(e);
 		}
-		contDraw(e);
 	}
 
 	function mobileCont(e) {
-		console.log('mobcont');
-		console.log(e);
-		if (e.pointerType == 'touch' || e.originalTarget.pointerType == 'touch') {
+		if (isTouch()) {
 			if (!mouseIsDown) {
 				startDraw(e);
 			}
@@ -715,6 +715,15 @@ echo <<<'EOD'
 				contDraw(e);
 			}
 		}
+	}
+
+	// based AI???
+	function isTouch() {
+	  return (
+	    ('ontouchstart' in window) ||
+	    (navigator.maxTouchPoints > 0) ||
+	    (navigator.msMaxTouchPoints > 0)
+	  );
 	}
 
 	// wrapped so we can return early
@@ -740,15 +749,15 @@ echo <<<'EOD'
 		for (i = 0; i < 256; i++) {
 			pixel = document.getElementById('pixel' + i);
 			pixel.addEventListener('click', noClick, false);
+			pixel.addEventListener('pointerdown', mobileStart, false);
 			pixel.addEventListener('mousedown', desktopStart, false);
-//			pixel.addEventListener('pointerdown', mobileStart, false);
 			pixel.addEventListener('mouseover', desktopCont, false);
 		}
-//		window.addEventListener('pointermove', mobileCont, false);
+		window.addEventListener('pointermove', mobileCont, false);
 		// kill it with fire
 		window.addEventListener('mouseup', endDraw, false);
-//		window.addEventListener('pointerup', endDraw, false);
-//		window.addEventListener('touchcancel', endDraw, false);
+		window.addEventListener('pointerup', endDraw, false);
+		window.addEventListener('touchcancel', endDraw, false);
 		// kbd
 		document.addEventListener('keydown', keyDownWrap, false);
 		document.addEventListener('keyup', endStraight, false);
