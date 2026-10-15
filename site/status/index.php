@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwd = substr($passwd, 0, -1);
 	fclose($fp);
 
-	$ip = hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '');
+	$ip = $_SERVER['REMOTE_ADDR'] ?? '';
 	if (strcmp($ip, $allowed) !== 0) {
 		die("not allowed");
 	}

@@ -2,7 +2,7 @@
 // GET endpoint for current status
 	// status is always in plaintext
 // POST to endpoint to update
-	// sha256 hash of your ip must be in .my.ip
+	// your ip must be in .my.ip
 	// password stored in .passwd must be sent as parameter
 	// curl -d "passwd=gay" -d "status=BRRRRRRRRRRRRRRRRRRR%0ABRRRRRRR" http://pnppl.helioho.st/gb/status/
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$bans_str = fread($bans_fp, filesize($bans_file));
 	fclose($bans_fp);
 	$bans = explode("\n", $bans_str);
-	$ip = hash('sha256', $_SERVER['REMOTE_ADDR']);
+	$ip = $_SERVER['REMOTE_ADDR'] ?? '';
 	if (in_array($ip, $bans)) {
 		die('fuck off');
 	}
