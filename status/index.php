@@ -1,0 +1,53 @@
+<?php
+// file locations
+$tsv_file = '../gb.tsv';
+$passwd_file = '.passwd';
+$status_file = 'status.txt';
+$allowed_file = '.my.ip';
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+	header('Content-Type: text/plain');
+	if (($fp = fopen($status_file, "r")) !== false) {
+		echo "current status of receipt printer:\n";
+	    echo fread($fp, filesize($status_file));
+	    date_default_timezone_set('America/New_York');
+	    echo "\n\nupdated " . date('Y-m-d @ h:i:sa T', filemtime($status_file));
+    	fclose($fp);
+	}
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+	if (($fp = fopen($allowed_file, "r")) === false) {
+		die("couldn't read allow file");
+	}
+    $allowed = fread($fp, filesize($allowed_file));
+    $allowed = substr($allowed, 0, -1); // newline
+	fclose($fp);
+
+	if (($fp = fopen($passwd_file, "r")) === false) {
+		die("couldn't read password file");
+	}
+    $passwd = fread($fp, filesize($passwd_file));
+    $passwd = substr($passwd, 0, -1);
+	fclose($fp);
+
+	$ip = hash('sha256', $_SERVER['REMOTE_ADDR'] ?? '');
+	if (strcmp($ip, $allowed) !== 0) {
+		die("not allowed");
+	}
+	if (strcmp($_POST['passwd'] ?? '', $passwd) !== 0) {
+		die("wrong password");
+	}
+
+	$status = $_POST['status'] ?? '';
+	if (!isset($status)) {
+		die("no status provided");
+	}
+	if (($fp = fopen($status_file, "w")) === false) {
+		die("couldn't write status");
+	}
+    fwrite($fp, $status);
+	fclose($fp);
+
+	echo "updated status to: $status";
+}
+exit();
+?>
