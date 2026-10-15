@@ -8,8 +8,12 @@ echo <<<'EOD'
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="color-scheme" content="light dark">
-	<title>Guestbook</title>
+	<title>HotPixels Guestbook | pnppl.cc</title>
 	<style><!--
+	body {
+		margin: 0 auto;
+		max-width: fit-content;
+	}
 	form,
 	code {
 		font-family: "Victor Mono Medium", monospace;
@@ -103,17 +107,47 @@ echo <<<'EOD'
 	#entries {
 		display: flex;
 		flex-direction: column-reverse;
+		width: fit-content;
+		padding: 2em;
+		background: white;
+		color: black;
+		list-style: none;
+		border: 1px solid gray;
+		border-top: 0;
+		margin: 0 auto 2em;
+		font-family: monospace, monospace;
+		box-shadow: 0px 9px 10px rgba(0, 0, 0, 50%);
+	}
+	#entries li {
+		max-width: 20em;
+	}
+	#entries a {
+		color: black;
+		text-decoration-skip-ink: none;
 	}
 	.comment {
 		width: fit-content;
+		margin: 0;
+	}
+	.comment p {
+		margin: 2em 0;
 	}
 	.gif {
 		display: block;
-		width: 64px;
-		height: 64px;
-		border: 1px solid hotpink;
+		/* width: 64px; */
+		width: 18em;
+		/* height: 64px; */
+		height: 18em;
+		/* border: 1px solid hotpink; */
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
+	}
+	.hr {
+		text-align: center;
+		margin: 4em 0;
+	}
+	.hr:last-of-type {
+		display: none;
 	}
 	@media (prefers-color-scheme: dark) {
 		body {
@@ -458,7 +492,7 @@ EOD;
 if (($gb_file = fopen($gb_path, "r")) !== false) {
 	while (($entry = fgetcsv($gb_file, 5000, "\t", '\\', '')) !== false) {
 		$date = $entry[0];
-		$date_friendly = date('Y-m-d', $date);
+		$date_friendly = date('Y-m-d (D.) @ H:i:s', $date);
 		$name = $entry[1];
 		$url = $entry[2] ?? '';
 		$url_bare = preg_replace('/^https?:\/\//i', '', $url, 1);
@@ -469,23 +503,27 @@ if (($gb_file = fopen($gb_path, "r")) !== false) {
 		echo <<<EOD
 				<li id="$date">
 					<a name="$date">$date_friendly</a>
+					<br>
 
 		EOD;
 		if (strlen($email) > 4) {
 			echo <<<EOD
-					&#183; <a href="mailto:$email">$name</a>
+					$name <a href="mailto:$email">[$email]</a>
+					<br>
 
 		EOD;
 		}
 		else {
 			echo <<<EOD
-					&#183; $name
+					$name
+					<br>
 
 		EOD;
 		}
 		if (strlen($url) > 4) {
 			echo <<<EOD
-					&#183; <a href="$url">$url_bare</a>
+					<a href="$url">$url_bare</a>
+					<br>
 
 		EOD;
 		}
@@ -511,10 +549,12 @@ if (($gb_file = fopen($gb_path, "r")) !== false) {
 
 			echo <<<EOD
 					</blockquote>
-
 			EOD;
 		}
-		echo "		</li>\n";
+		echo <<<EOD
+				</li>
+				<p class="hr">_ * ~ * _ * ~ * _ * ~ * _ * ~</p>
+			EOD;
 	}
 	fclose($gb_file);
 }
