@@ -1,0 +1,10 @@
+/home/pnppl/print/zj-58/build/CMakeFiles/rastertozj.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/ppds.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/package.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/package_source.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/edit_cache.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/rebuild_cache.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/list_install_components.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/install.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/install/local.dir
+/home/pnppl/print/zj-58/build/CMakeFiles/install/strip.dir

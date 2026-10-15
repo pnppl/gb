@@ -1,0 +1,243 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:233 (message)"
+      - "CMakeLists.txt:10 (project)"
+    message: |
+      The system is: Linux - 7.0.0-34-generic - riscv64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:10 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/pnppl/print/zj-58/build/CMakeFiles/3.28.3/CompilerIdC/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:10 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0"
+      binary: "/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7fbbf/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7fbbf.dir/build.make CMakeFiles/cmTC_7fbbf.dir/build
+        gmake[1]: Entering directory '/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0'
+        Building C object CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        Target: riscv64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04.1' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gc --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=4
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o' '-c' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'CMakeFiles/cmTC_7fbbf.dir/'
+         /usr/libexec/gcc/riscv64-linux-gnu/13/cc1 -quiet -v -imultilib . -imultiarch riscv64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_7fbbf.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=rv64imafdc_zicsr_zifencei -mabi=lp64d -misa-spec=20191213 -march=rv64imafdc_zicsr_zifencei -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccqrn1fI.s
+        GNU C17 (Ubuntu 13.3.0-6ubuntu2~24.04.1) version 13.3.0 (riscv64-linux-gnu)
+        	compiled by GNU C version 13.3.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.26-GMP
+        
+        GGC heuristics: --param ggc-min-expand=94 --param ggc-min-heapsize=121035
+        ignoring nonexistent directory "/usr/local/include/riscv64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/riscv64-linux-gnu/13/include-fixed/riscv64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/riscv64-linux-gnu/13/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/riscv64-linux-gnu/13/../../../../riscv64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/riscv64-linux-gnu/13/include
+         /usr/local/include
+         /usr/include/riscv64-linux-gnu
+         /usr/include
+        End of search list.
+        Compiler executable checksum: 53149df7d456b5d3621d0032a911dce1
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o' '-c' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'CMakeFiles/cmTC_7fbbf.dir/'
+         as -v --traditional-format -fpic -march=rv64imafdc_zicsr_zifencei -march=rv64imafdc_zicsr_zifencei -mabi=lp64d -misa-spec=20191213 -o CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o /tmp/ccqrn1fI.s
+        GNU assembler version 2.42 (riscv64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42
+        COMPILER_PATH=/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/:/usr/lib/gcc/riscv64-linux-gnu/13/:/usr/lib/gcc/riscv64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/riscv64-linux-gnu/13/:/lib/riscv64-linux-gnu/:/lib/:/usr/lib/riscv64-linux-gnu/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o' '-c' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_7fbbf
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fbbf.dir/link.txt --verbose=1
+        /usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o -o cmTC_7fbbf 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper
+        Target: riscv64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04.1' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c,ada,c++,go,d,fortran,objc,obj-c++,m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gc --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=4
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) 
+        COMPILER_PATH=/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/:/usr/lib/gcc/riscv64-linux-gnu/13/:/usr/lib/gcc/riscv64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/riscv64-linux-gnu/13/:/lib/riscv64-linux-gnu/:/lib/:/usr/lib/riscv64-linux-gnu/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7fbbf' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'cmTC_7fbbf.'
+         /usr/libexec/gcc/riscv64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/riscv64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJPItnW.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -hash-style=gnu --as-needed -melf64lriscv -export-dynamic -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -pie -z now -z relro -o cmTC_7fbbf /lib/riscv64-linux-gnu/Scrt1.o /usr/lib/gcc/riscv64-linux-gnu/13/crti.o /usr/lib/gcc/riscv64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/riscv64-linux-gnu/13 -L/lib/riscv64-linux-gnu -L/usr/lib/riscv64-linux-gnu CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/riscv64-linux-gnu/13/crtendS.o /usr/lib/gcc/riscv64-linux-gnu/13/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7fbbf' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'cmTC_7fbbf.'
+        gmake[1]: Leaving directory '/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:10 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/riscv64-linux-gnu/13/include]
+          add: [/usr/local/include]
+          add: [/usr/include/riscv64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/riscv64-linux-gnu/13/include] ==> [/usr/lib/gcc/riscv64-linux-gnu/13/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/riscv64-linux-gnu] ==> [/usr/include/riscv64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/riscv64-linux-gnu/13/include;/usr/local/include;/usr/include/riscv64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerABI.cmake:159 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:10 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: '/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7fbbf/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_7fbbf.dir/build.make CMakeFiles/cmTC_7fbbf.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/pnppl/print/zj-58/build/CMakeFiles/CMakeScratch/TryCompile-D2uBI0']
+        ignore line: [Building C object CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [Target: riscv64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04.1' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gc --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=4]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o' '-c' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'CMakeFiles/cmTC_7fbbf.dir/']
+        ignore line: [ /usr/libexec/gcc/riscv64-linux-gnu/13/cc1 -quiet -v -imultilib . -imultiarch riscv64-linux-gnu /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_7fbbf.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=rv64imafdc_zicsr_zifencei -mabi=lp64d -misa-spec=20191213 -march=rv64imafdc_zicsr_zifencei -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccqrn1fI.s]
+        ignore line: [GNU C17 (Ubuntu 13.3.0-6ubuntu2~24.04.1) version 13.3.0 (riscv64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 13.3.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.26-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=94 --param ggc-min-heapsize=121035]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/riscv64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/riscv64-linux-gnu/13/include-fixed/riscv64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/riscv64-linux-gnu/13/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/riscv64-linux-gnu/13/../../../../riscv64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/riscv64-linux-gnu/13/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/riscv64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 53149df7d456b5d3621d0032a911dce1]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o' '-c' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'CMakeFiles/cmTC_7fbbf.dir/']
+        ignore line: [ as -v --traditional-format -fpic -march=rv64imafdc_zicsr_zifencei -march=rv64imafdc_zicsr_zifencei -mabi=lp64d -misa-spec=20191213 -o CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o /tmp/ccqrn1fI.s]
+        ignore line: [GNU assembler version 2.42 (riscv64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.42]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/:/usr/lib/gcc/riscv64-linux-gnu/13/:/usr/lib/gcc/riscv64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/riscv64-linux-gnu/13/:/lib/riscv64-linux-gnu/:/lib/:/usr/lib/riscv64-linux-gnu/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o' '-c' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_7fbbf]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fbbf.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v -rdynamic CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o -o cmTC_7fbbf ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper]
+        ignore line: [Target: riscv64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 13.3.0-6ubuntu2~24.04.1' --with-bugurl=file:///usr/share/doc/gcc-13/README.Bugs --enable-languages=c ada c++ go d fortran objc obj-c++ m2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-13 --program-prefix=riscv64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/libexec --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-libstdcxx-backtrace --enable-gnu-unique-object --disable-libquadmath --disable-libquadmath-support --enable-plugin --enable-default-pie --with-system-zlib --enable-libphobos-checking=release --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --disable-multilib --with-arch=rv64gc --with-abi=lp64d --enable-checking=release --build=riscv64-linux-gnu --host=riscv64-linux-gnu --target=riscv64-linux-gnu --with-build-config=bootstrap-lto-lean --enable-link-serialization=4]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04.1) ]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/13/:/usr/libexec/gcc/riscv64-linux-gnu/:/usr/lib/gcc/riscv64-linux-gnu/13/:/usr/lib/gcc/riscv64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/riscv64-linux-gnu/13/:/lib/riscv64-linux-gnu/:/lib/:/usr/lib/riscv64-linux-gnu/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7fbbf' '-march=rv64imafdc_zicsr_zifencei' '-mabi=lp64d' '-misa-spec=20191213' '-march=rv64imafdc_zicsr_zifencei' '-dumpdir' 'cmTC_7fbbf.']
+        link line: [ /usr/libexec/gcc/riscv64-linux-gnu/13/collect2 -plugin /usr/libexec/gcc/riscv64-linux-gnu/13/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper -plugin-opt=-fresolution=/tmp/ccJPItnW.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -hash-style=gnu --as-needed -melf64lriscv -export-dynamic -dynamic-linker /lib/ld-linux-riscv64-lp64d.so.1 -pie -z now -z relro -o cmTC_7fbbf /lib/riscv64-linux-gnu/Scrt1.o /usr/lib/gcc/riscv64-linux-gnu/13/crti.o /usr/lib/gcc/riscv64-linux-gnu/13/crtbeginS.o -L/usr/lib/gcc/riscv64-linux-gnu/13 -L/lib/riscv64-linux-gnu -L/usr/lib/riscv64-linux-gnu CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/riscv64-linux-gnu/13/crtendS.o /usr/lib/gcc/riscv64-linux-gnu/13/crtn.o]
+          arg [/usr/libexec/gcc/riscv64-linux-gnu/13/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/libexec/gcc/riscv64-linux-gnu/13/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/libexec/gcc/riscv64-linux-gnu/13/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccJPItnW.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-melf64lriscv] ==> ignore
+          arg [-export-dynamic] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib/ld-linux-riscv64-lp64d.so.1] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_7fbbf] ==> ignore
+          arg [/lib/riscv64-linux-gnu/Scrt1.o] ==> obj [/lib/riscv64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/riscv64-linux-gnu/13/crti.o] ==> obj [/usr/lib/gcc/riscv64-linux-gnu/13/crti.o]
+          arg [/usr/lib/gcc/riscv64-linux-gnu/13/crtbeginS.o] ==> obj [/usr/lib/gcc/riscv64-linux-gnu/13/crtbeginS.o]
+          arg [-L/usr/lib/gcc/riscv64-linux-gnu/13] ==> dir [/usr/lib/gcc/riscv64-linux-gnu/13]
+          arg [-L/lib/riscv64-linux-gnu] ==> dir [/lib/riscv64-linux-gnu]
+          arg [-L/usr/lib/riscv64-linux-gnu] ==> dir [/usr/lib/riscv64-linux-gnu]
+          arg [CMakeFiles/cmTC_7fbbf.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/riscv64-linux-gnu/13/crtendS.o] ==> obj [/usr/lib/gcc/riscv64-linux-gnu/13/crtendS.o]
+          arg [/usr/lib/gcc/riscv64-linux-gnu/13/crtn.o] ==> obj [/usr/lib/gcc/riscv64-linux-gnu/13/crtn.o]
+        collapse library dir [/usr/lib/gcc/riscv64-linux-gnu/13] ==> [/usr/lib/gcc/riscv64-linux-gnu/13]
+        collapse library dir [/lib/riscv64-linux-gnu] ==> [/lib/riscv64-linux-gnu]
+        collapse library dir [/usr/lib/riscv64-linux-gnu] ==> [/usr/lib/riscv64-linux-gnu]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/lib/riscv64-linux-gnu/Scrt1.o;/usr/lib/gcc/riscv64-linux-gnu/13/crti.o;/usr/lib/gcc/riscv64-linux-gnu/13/crtbeginS.o;/usr/lib/gcc/riscv64-linux-gnu/13/crtendS.o;/usr/lib/gcc/riscv64-linux-gnu/13/crtn.o]
+        implicit dirs: [/usr/lib/gcc/riscv64-linux-gnu/13;/lib/riscv64-linux-gnu;/usr/lib/riscv64-linux-gnu]
+        implicit fwks: []
+      
+      
+...
