@@ -8,7 +8,7 @@ if ($utime < 1777777777 || $utime > 9999999999) {
 }
 
 // we can serve as text/tab-separated-values but then it won't just display the damn thing in a browser
-header('Content-Type: text/plain; charset=us-ascii');
+header('Content-Type: text/plain; charset=utf8');
 
 if (($gb_file = fopen($tsv_file, "r")) !== false) {
 	while (($entry = fgetcsv($gb_file, 5000, "\t", '\\', '')) !== false) {

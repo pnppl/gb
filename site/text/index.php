@@ -1,4 +1,5 @@
 <?php
+// we basically want to serve utf8 to anything remotely modern
 $utf8 = false;
 if (strripos($_SERVER['HTTP_ACCEPT'] ?? '', 'utf') !== false ||
 	strripos($_SERVER['HTTP_ACCEPT_CHARSET'] ?? '', 'utf') !== false ||
@@ -49,7 +50,7 @@ if ($utf8) {
 	$header .= 'utf-8';
 }
 else {
-	$header .= 'ascii';
+	$header .= 'us-ascii';
 }
 header($header);
 

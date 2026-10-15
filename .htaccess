@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteRule (\.ip$) - [R=404,L]
+RewriteRule (\.passwd$) - [R=404,L]
