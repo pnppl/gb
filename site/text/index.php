@@ -39,6 +39,8 @@ if (array_key_exists('plain', $_GET)) {
 	}
 }
 
+// host says it's brotli compressed otherwise and firefox is unhappy
+header('Content-Encoding: identity');
 $header = 'Content-Type: text/';
 if ($plain) {
 	$header .= 'plain; charset=';
