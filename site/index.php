@@ -198,6 +198,7 @@ echo <<<'EOD'
 		border: 0;
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
+		margin-top: 2em;
 	}
 	.hr {
 		margin: 4em auto 3em;
