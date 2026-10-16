@@ -18,22 +18,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}
 
 	$bans_fp = fopen($bans_file, "r") or die("Can't read ban list");
-	$bans_str = fread($bans_fp, filesize($bans_file));
-	fclose($bans_fp);
-	$bans = explode("\n", $bans_str);
-	$ip = $_SERVER['REMOTE_ADDR'] ?? '';
-	if (in_array($ip, $bans)) {
-		die('fuck off');
+	if (filesize($bans_file) > 1) {
+		$bans_str = fread($bans_fp, filesize($bans_file));
+		fclose($bans_fp);
+		$bans = explode("\n", $bans_str);
+		$ip = $_SERVER['REMOTE_ADDR'] ?? '';
+		if (in_array($ip, $bans)) {
+			die('fuck off');
+		}
 	}
 
 	$ip_fp = fopen($ip_file, "r") or die("Can't read recents list");
-	$ip_str = fread($ip_fp, filesize($ip_file));
-	fclose($ip_fp);
-	$ip_list = explode("\n", $ip_str);
-	// remove timestamps. this will stop working in 260 years
-	$ip_list = array_map(fn($str) => substr($str, 11) ?: '', $ip_list);
-	if (in_array($ip, $ip_list)) {
-		die('someone from your IP has already submitted an entry recently');
+	if (filesize($ip_file) > 1) {
+		$ip_str = fread($ip_fp, filesize($ip_file));
+		fclose($ip_fp);
+		$ip_list = explode("\n", $ip_str);
+		// remove timestamps. this will stop working in 260 years
+		$ip_list = array_map(fn($str) => substr($str, 11) ?: '', $ip_list);
+		if (in_array($ip, $ip_list)) {
+			die('someone from your IP has already submitted an entry recently');
+		}
 	}
 
 	$name = htmlspecialchars($_POST['name'] ?? '') ?: 'anon';
