@@ -14,15 +14,13 @@ echo <<<'EOD'
 		margin: 0 auto;
 		max-width: fit-content;
 		padding: 0.25em;
+		background: pink;
 	}
 	h3,
 	form,
 	code,
 	#entries {
 		font-family: "Victor Mono Medium", monospace;
-	}
-	h3 {
-		padding: 1em;
 	}
 	form > br,
 	label {
@@ -40,12 +38,13 @@ echo <<<'EOD'
 		background: #80c0ff;
 		border: 1px solid midnightblue;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
+		max-width: 30em;
 	}
 	input[type="text"],
 	input[type="url"],
 	input[type="email"],
 	textarea {
-		width: 25%;
+		width: 75%;
 	}
 	.note {
 		font-size: 0.9em;
@@ -57,6 +56,11 @@ echo <<<'EOD'
 		font-size: 1em;
 		margin-top: 0.5em;
 		padding: 0.25em;
+	}
+	.center {
+		margin: auto;
+		width:fit-content;
+		display: block;
 	}
 	.hide {
 		display: none;
@@ -140,6 +144,12 @@ echo <<<'EOD'
 	#entries li {
 		max-width: 20em;
 	}
+	form a {
+		color: mediumblue;
+	}
+	form a:visited {
+		color: purple;
+	}
 	#entries a {
 		color: black;
 		text-decoration-skip-ink: none;
@@ -206,8 +216,11 @@ echo <<<'EOD'
 	--></style>
 </head>
 <body>
-	<h3>All fields except CAPTCHA are optional, but you must answer at least one!</h3>
 	<form method="post" action="submit/">
+		<h1 class="center">HotPixels Guestbook</h1>
+		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.</p>
+		<p>All fields except CAPTCHA are optional, but you must answer at least one!</p>
+		<br>
 		<label><code>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="text" name="name" placeholder="pnppl" maxlength="100"></label>
 		<br>
 		<label><code>Homepage:&nbsp;</code><input type="url" name="url" placeholder="http://pnppl.cc/" maxlength="400"></label>
@@ -586,6 +599,7 @@ else {
 
 echo <<<'EOD'
 	</ul>
+	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="mailto:gb@pnppl.cc">gb@pnppl.cc</a></p>
 	<script><!--
 	// this was basic prog enhance so you could click and drag but it got a little out of hand
 
