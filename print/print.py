@@ -3,6 +3,7 @@ from datetime import datetime
 from escpos.printer import Usb
 from PIL import Image
 import textwrap
+import html
 
 URL = "https://gb.pnppl.cc/"
 PASSWD = "hackme"
@@ -79,7 +80,8 @@ def poll_and_print():
 
 		if len(entry[COMMENT]) > 0:
 			PRINTER.textln('')
-			flip_print(f"« {entry[COMMENT].replace('<br>', '\n')} »")
+			comment = entry[COMMENT].replace('<br>', '\n')
+			flip_print(f"« {html.unescape(comment)} »")
 
 		if len(entry[HOMEPAGE]) > 0:
 			PRINTER.textln('')
