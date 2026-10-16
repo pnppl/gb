@@ -252,7 +252,7 @@ echo <<<'EOD'
 		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.
 		<br>
 		<br>I will personally hear, admire, touch, and smell your steaming hot pixels.</p>
-		<p>All fields except CAPTCHA are optional, but you must answer at least one! You can submit once per day (resets at 11:11pm NYC).</p>
+		<p>All fields except CAPTCHA are optional, but you must answer at least one! You can submit once per day (resets at 11:11pm).</p>
 		<br>
 		<label><code>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="text" name="name" placeholder="pnppl" maxlength="100"></label>
 		<br>
