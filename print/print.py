@@ -4,7 +4,7 @@ from escpos.printer import Usb
 from PIL import Image
 import textwrap
 
-URL = "https://pnppl.helioho.st/gb/"
+URL = "https://gb.pnppl.cc/"
 PASSWD = "hackme"
 with open(".passwd", "r") as passwd:
 	PASSWD = passwd.read()
