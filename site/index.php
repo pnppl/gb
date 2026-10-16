@@ -20,6 +20,7 @@ echo <<<'EOD'
 	h3,
 	form,
 	code,
+	input,
 	#entries {
 		font-family: "Victor Mono Medium", monospace;
 	}
@@ -37,9 +38,21 @@ echo <<<'EOD'
 		color: black;
 		/* background: dodgerblue; */
 		background: #80c0ff;
-		border: 1px solid midnightblue;
+		/* border: 1px solid midnightblue; */
+		border: 1em outset midnightblue;
+		border-radius: 15%;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
 		max-width: 30em;
+	}
+	h1 {
+		font-weight: normal;
+	}
+	form > p {
+		color: white;
+		background: black;
+		padding: 1em;
+		border: 0.5em inset black;
+		border-radius: 2em;
 	}
 	input[type="text"],
 	input[type="url"],
@@ -50,7 +63,7 @@ echo <<<'EOD'
 	.note {
 		font-size: 0.9em;
 //		margin-left: 11ch;
-		margin: 0.25em 0 0.5em 11ch;
+		margin: 0.25em 0 0.5em 6em;
 		display: block;
 	}
 	#submit {
@@ -137,7 +150,7 @@ echo <<<'EOD'
 		border-top: 4px solid black;
 		border-bottom-width: 2px;
 		border-radius: 5%;
-		margin: -2.5em auto 2em;
+		margin: -4em auto 2em;
 		font-size: 0.9em;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
 		overflow-wrap: anywhere;
@@ -146,10 +159,10 @@ echo <<<'EOD'
 		max-width: 20em;
 	}
 	form a {
-		color: mediumblue;
+		color: #00CADB;
 	}
 	form a:visited {
-		color: purple;
+		color: plum;
 	}
 	#entries a {
 		color: black;
@@ -218,7 +231,7 @@ echo <<<'EOD'
 </head>
 <body>
 	<form method="post" action="submit/">
-		<h1 class="center"><span style="color:hotpink">Hot </span>Pixels Guestbook</h1>
+		<h1 class="center"><b style="color:hotpink">Hot </b>Pixels Guestbook</h1>
 		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.</p>
 		<p>All fields except CAPTCHA are optional, but you must answer at least one!</p>
 		<br>
@@ -534,6 +547,7 @@ if (($gb_file = fopen($gb_path, "r")) !== false) {
 		$url_bare = preg_replace('/^https?:\/\//i', '', $url, 1);
 		$url_bare = preg_replace('/\/$/', '', $url_bare, 1);
 		$email = $entry[3] ?? '';
+		$email_decimal = implode("", array_map(fn($char) => "&#" . ord($char) . ";", str_split($email)));
 		$comment = $entry[4] ?? '';
 		$pic = $entry[5] ?? '';
 		echo <<<EOD
@@ -544,7 +558,7 @@ if (($gb_file = fopen($gb_path, "r")) !== false) {
 		EOD;
 		if (strlen($email) > 4) {
 			echo <<<EOD
-					$name <a href="mailto:$email">[$email]</a>
+					$name <a href="mailto:$email_decimal">[$email_decimal]</a>
 					<br>
 
 		EOD;
@@ -600,7 +614,7 @@ else {
 
 echo <<<'EOD'
 	</ul>
-	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="mailto:gb@pnppl.cc">gb@pnppl.cc</a></p>
+	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="mailto:&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;">&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;</a></p>
 	<script><!--
 	// this was basic prog enhance so you could click and drag but it got a little out of hand
 
