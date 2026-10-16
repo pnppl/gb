@@ -248,7 +248,7 @@ echo <<<'EOD'
 </head>
 <body>
 	<form method="post" action="submit/">
-		<h1 class="center"><b style="color:hotpink">Hot </b>Pixels Guestbook</h1>
+		<h1 class="center" style="text-align:center;"><b style="color:hotpink">Hot </b>Pixels Guestbook</h1>
 		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.
 		<br>
 		<br>I will personally hear, admire, touch, and smell your steaming pixels.</p>
