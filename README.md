@@ -1,4 +1,6 @@
-Guestbook for my website pnppl.cc
+# HotPixels Guestbook
+
+gb.pnppl.cc
 
 - Site code in `site`
 - Thermal receipt printer script in `print`

@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		die('fuck off');
 	}
 
-	$ip_fp = fopen($ip_file, "r") or die("Can't read ban list");
+	$ip_fp = fopen($ip_file, "r") or die("Can't read recents list");
 	$ip_str = fread($ip_fp, filesize($ip_file));
 	fclose($ip_fp);
 	$ip_list = explode("\n", $ip_str);

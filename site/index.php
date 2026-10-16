@@ -14,7 +14,7 @@ echo <<<'EOD'
 		margin: 0 auto;
 		max-width: fit-content;
 		padding: 0.25em;
-		background: pink;
+		/* background: pink; */
 	}
 	h3,
 	form,
@@ -217,7 +217,7 @@ echo <<<'EOD'
 </head>
 <body>
 	<form method="post" action="submit/">
-		<h1 class="center">HotPixels Guestbook</h1>
+		<h1 class="center"><span style="color:hotpink">Hot</span>Pixels Guestbook</h1>
 		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.</p>
 		<p>All fields except CAPTCHA are optional, but you must answer at least one!</p>
 		<br>
