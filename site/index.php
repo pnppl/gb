@@ -20,7 +20,11 @@ echo <<<'EOD'
 	h3,
 	form,
 	code,
-	input,
+	input[type="text"],
+	input[type="url"],
+	input[type="email"],
+	input[type="button"],
+	input[type="submit"],
 	#entries {
 		font-family: "Victor Mono Medium", monospace;
 	}
@@ -32,7 +36,7 @@ echo <<<'EOD'
 		margin: 0.5em 0;
 	}
 	form {
-		padding: 1em 4em 4em;
+		padding: 1em 4em 18em;
 		/* border: 1px solid hotpink; */
 		/* background: hotpink; */
 		color: black;
@@ -40,7 +44,7 @@ echo <<<'EOD'
 		background: #80c0ff;
 		/* border: 1px solid midnightblue; */
 		border: 1em outset midnightblue;
-		border-radius: 15%;
+		border-radius: 8em;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
 		max-width: 30em;
 	}
@@ -150,7 +154,7 @@ echo <<<'EOD'
 		border-top: 4px solid black;
 		border-bottom-width: 2px;
 		border-radius: 5%;
-		margin: -4em auto 2em;
+		margin: -18em auto 2em;
 		font-size: 0.9em;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
 		overflow-wrap: anywhere;
@@ -169,7 +173,7 @@ echo <<<'EOD'
 		text-decoration-skip-ink: none;
 	}
 	#entries i {
-		font-style: oblique;
+		font-style: normal;
 	}
 	.comment {
 		width: fit-content;
@@ -177,6 +181,12 @@ echo <<<'EOD'
 	}
 	.comment p {
 		margin: 2em 0;
+	}
+	.comment p::before {
+		content: '« ';
+	}
+	.comment p:after {
+		content: ' »';
 	}
 	.gif {
 		display: block;
@@ -209,6 +219,12 @@ echo <<<'EOD'
 		}
 		#controls span {
 			display: none;
+		}
+		form {
+			padding: 1em;
+			padding-bottom: 18em;
+			border: 0;
+			border-radius: 0;
 		}
 	}
 	@media screen and (max-width: 400px) {
@@ -552,7 +568,7 @@ if (($gb_file = fopen($gb_path, "r")) !== false) {
 		$pic = $entry[5] ?? '';
 		echo <<<EOD
 				<li id="$date">
-					<a name="$date">$date_friendly</a>
+					<a name="$date" id="$date" title="$date">$date_friendly</a>
 					<br>
 
 		EOD;
