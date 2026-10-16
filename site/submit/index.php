@@ -137,8 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	fwrite($ip_fp, $date . ' ' . $ip . "\n");
 	fclose($ip_fp);
 
-	// redirect back to guestbook. param hopefully makes browser load it fresh
-	header('Location: ../?cache=' . $date . '#' . $date);
+	header('Location: ../#' . $date);
 	exit();
 }
 header('Location: ../');
