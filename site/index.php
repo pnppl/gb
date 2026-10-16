@@ -25,6 +25,14 @@ echo <<<'EOD'
 	label {
 		margin: 0.5em 0;
 	}
+	form {
+		padding: 1em;
+		padding-bottom: 5em;
+		border: 1px solid hotpink;
+		/* background: hotpink;
+		color: black; */
+		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
+	}
 	input[type="text"],
 	input[type="url"],
 	input[type="email"],
@@ -113,10 +121,13 @@ echo <<<'EOD'
 		color: black;
 		list-style: none;
 		border: 1px solid gray;
-		border-top: 0;
-		margin: 0 auto 2em;
+		border-top: 2px solid black;
+		border-bottom: 2px dotted gray;
+		border-radius: 2% 2% 0 0;
+		margin: -2.5em auto 2em;
 		font-family: monospace, monospace;
-		box-shadow: 0px 9px 10px rgba(0, 0, 0, 50%);
+		font-size: 0.9em;
+		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
 	}
 	#entries li {
 		max-width: 20em;
@@ -139,12 +150,12 @@ echo <<<'EOD'
 		/* height: 64px; */
 		height: 18em;
 		/* border: 1px solid hotpink; */
+		border: 0;
 		image-rendering: crisp-edges;
 		image-rendering: pixelated;
 	}
 	.hr {
-		text-align: center;
-		margin: 4em 0;
+		margin: 4em auto 3em;
 	}
 	.hr:last-of-type {
 		display: none;
@@ -484,7 +495,7 @@ echo <<<'EOD'
 		<br>
 		<code class="note"><b><i>IPs will be stored for abuse prevention.</i></b></code>
 	</form>
-	<hr>
+	<hr class="hide">
 	<ul id="entries">
 
 EOD;
