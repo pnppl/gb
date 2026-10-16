@@ -12,6 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	$bans_file = '.banned.ip';
 	$ip_file = '.recent.ip';
 
+	$ip = $_SERVER['REMOTE_ADDR'] ?? '';
+
 	//// ingest form data
 	if (strcasecmp($_POST['captcha'] ?? '', 'pnppl') !== 0) {
 		die('wrong answer to CAPTCHA');
@@ -22,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$bans_str = fread($bans_fp, filesize($bans_file));
 		fclose($bans_fp);
 		$bans = explode("\n", $bans_str);
-		$ip = $_SERVER['REMOTE_ADDR'] ?? '';
 		if (in_array($ip, $bans)) {
 			die('fuck off');
 		}
