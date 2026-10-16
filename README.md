@@ -1,4 +1,4 @@
-# HotPixels Guestbook
+# Hot Pixels Guestbook
 
 gb.pnppl.cc
 
