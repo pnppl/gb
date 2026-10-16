@@ -80,14 +80,14 @@ parameters:
 	code {
 		font-family: "Victor Mono Medium", monospace;
 	}
-	.pic {
+	#pic {
 		display: block;
 		width: 18em;
 		width: fit-content;
 		border: 1px solid hotpink;
 		background: white;
 	}
-	.pic br,
+	#pic br,
 	.border {
 		display: none;
 	}
@@ -118,7 +118,7 @@ parameters:
 	}
 	--></style>
 <body>
-	<div class="pic">
+	<div id="pic">
 		<code class="border">
 EOD;
 if ($utf8) {
@@ -201,6 +201,7 @@ $html .= <<<'EOD'
 </code>
 		<br>
 	</div>
+	<input id="copy" type="button" onclick="pic = document.getElementById('pic').innerText; navigator.clipboard.writeText(pic); document.getElementById('copy').value = 'copied';" value="copy">
 </body>
 </html>
 EOD;
