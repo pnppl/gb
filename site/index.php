@@ -15,6 +15,7 @@ echo <<<'EOD'
 		max-width: fit-content;
 		padding: 0.25em;
 		/* background: pink; */
+		background: #eee;
 	}
 	h3,
 	form,
