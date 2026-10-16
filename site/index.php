@@ -13,10 +13,16 @@ echo <<<'EOD'
 	body {
 		margin: 0 auto;
 		max-width: fit-content;
+		padding: 0.25em;
 	}
+	h3,
 	form,
-	code {
+	code,
+	#entries {
 		font-family: "Victor Mono Medium", monospace;
+	}
+	h3 {
+		padding: 1em;
 	}
 	form > br,
 	label {
@@ -26,11 +32,13 @@ echo <<<'EOD'
 		margin: 0.5em 0;
 	}
 	form {
-		padding: 1em;
-		padding-bottom: 5em;
-		border: 1px solid hotpink;
-		/* background: hotpink;
-		color: black; */
+		padding: 1em 4em 4em;
+		/* border: 1px solid hotpink; */
+		/* background: hotpink; */
+		color: black;
+		/* background: dodgerblue; */
+		background: #80c0ff;
+		border: 1px solid midnightblue;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
 	}
 	input[type="text"],
@@ -121,13 +129,13 @@ echo <<<'EOD'
 		color: black;
 		list-style: none;
 		border: 1px solid gray;
-		border-top: 2px solid black;
-		border-bottom: 2px dotted gray;
-		border-radius: 2% 2% 0 0;
+		border-top: 4px solid black;
+		border-bottom-width: 2px;
+		border-radius: 5%;
 		margin: -2.5em auto 2em;
-		font-family: monospace, monospace;
 		font-size: 0.9em;
 		box-shadow: 0px 10px 10px rgba(0, 0, 0, 50%);
+		overflow-wrap: anywhere;
 	}
 	#entries li {
 		max-width: 20em;
@@ -135,6 +143,9 @@ echo <<<'EOD'
 	#entries a {
 		color: black;
 		text-decoration-skip-ink: none;
+	}
+	#entries i {
+		font-style: oblique;
 	}
 	.comment {
 		width: fit-content;
