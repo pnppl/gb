@@ -7,7 +7,7 @@ import textwrap
 URL = "https://gb.pnppl.cc/"
 PASSWD = "hackme"
 with open(".passwd", "r") as passwd:
-	PASSWD = passwd.read()
+	PASSWD = passwd.read().strip()
 LOG = "print.log"
 PRINTER = Usb(0x6868, 0x0200, 0, profile="POS-5890")
 FULL_SIZE_TXT = 256;

@@ -518,7 +518,7 @@ echo <<<'EOD'
 		<br>
 		<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="submit" value="Submit" id="submit">
 		<br>
-		<code class="note"><b><i>IPs will be stored for abuse prevention.</i></b></code>
+		<code class="note"><b><i>IP will be stored for abuse prevention.</i></b></code>
 	</form>
 	<hr class="hide">
 	<ul id="entries">
