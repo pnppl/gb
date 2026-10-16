@@ -251,7 +251,7 @@ echo <<<'EOD'
 		<h1 class="center"><b style="color:hotpink">Hot </b>Pixels Guestbook</h1>
 		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.</p>
 		<p>I will personally hear, admire, touch, and smell your steaming pixels.</p>
-		<p>All fields except CAPTCHA are optional, but you must answer at least one!</p>
+		<p>All fields except CAPTCHA are optional, but you must answer at least one! You can submit once every 24 hours --- resets at 11:11 NYC.</p>
 		<br>
 		<label><code>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="text" name="name" placeholder="pnppl" maxlength="100"></label>
 		<br>
