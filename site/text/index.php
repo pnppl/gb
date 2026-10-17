@@ -75,6 +75,7 @@ parameters:
 -->
 <html>
 <head>
+	<link rel="icon" href="../favicon.ico">
 	<title>Text art</title>
 	<style><!--
 	code {
