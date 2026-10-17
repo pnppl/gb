@@ -1,9 +1,17 @@
 <?php
+// GET endpoint for current status
+	// status is always in plaintext
+// POST to endpoint to update
+	// your ip must be in .my.ip
+	// password stored in .passwd must be sent as parameter
+	// curl -d "passwd=gay" -d "status=BRRRRRRRRRRRRRRRRRRR%0ABRRRRRRR" http://pnppl.helioho.st/gb/status/
+
 // file locations
 $tsv_file = '../gb.tsv';
 $passwd_file = '.passwd';
 $status_file = 'status.txt';
 $allowed_file = '.my.ip';
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	header('Content-Type: text/plain');
 	if (($fp = fopen($status_file, "r")) !== false) {
