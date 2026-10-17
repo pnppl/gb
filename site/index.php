@@ -253,7 +253,7 @@ echo <<<'EOD'
 		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.
 		<br>
 		<br>I will personally hear, admire, touch, and smell your steaming hot pixels. Please be nice! <b style="color:hotpink">&lt;3</b></p>
-		<p>All fields except CAPTCHA are optional, but you must answer at least one! You can submit once per day (resets at 11:11pm).</p>
+		<p>All fields except CAPTCHA are optional, but you must answer at least one! You can submit once per day (resets at 11:11pm NYC).</p>
 		<br>
 		<label><code>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="text" name="name" placeholder="pnppl" maxlength="100"></label>
 		<br>
@@ -560,6 +560,7 @@ EOD;
 
 if (($gb_file = fopen($gb_path, "r")) !== false) {
 	while (($entry = fgetcsv($gb_file, 5000, "\t", '\\', '')) !== false) {
+		date_default_timezone_set('America/New_York');
 		$date = $entry[0];
 		$date_friendly = date('Y-m-d (D.) @ H:i:s', $date);
 		$name = $entry[1];

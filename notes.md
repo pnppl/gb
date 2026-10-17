@@ -2,3 +2,4 @@
 - Printer line spacing still isn't quite right. it's sort of hard to reason about it with it all being backwards and most fields being optional, much easier to fix in CSS. Need to consistently space out comment/art from name/homepage
 - Is the cooldown excessive? On the one hand I don't want my paper to be wasted with spammed swastikas, on the other it's harshing people's fun
 - Should do some kinda writeup on my thoughts and how i plan to tape entries on the wall and update irl.jpg etc, maybe some kinda details page which could explain about the text art mode's API etc. though it seems like there needs to be a "preview" or "generate string" mode given the cooldown. idk, would people really want to use the editor just to use it?
+- Double check we're printing in NYC time
