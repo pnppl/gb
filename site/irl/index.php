@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		body {
 			background: #eee;
 			font-family: "Victor Mono", monospace;
+			padding: 0.25em;
 		}
 		img {
 		}
