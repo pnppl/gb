@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		--></style>
 	</head>
 	<body>
-		<h1><a href=".."><b style="color:hotpink">Hot</b> Pixels</a> IRL</h1>
+		<h1><a href=".."><span style="font-weight:bold; color:hotpink">Hot</span> Pixels</a> IRL</h1>
 		<img src="$pics[1]" alt="most recent photo of guestbook's corner of honor: receipt printer and SBC stuck to wall next to window, with USB cords connected and running down wall; receipts with inscrutable text and scrutable pixel art are stuck to wall next to it" width="800" height="1066" title="guestbook corner of honor as of $currDate">
 		<h2>cold pixels</h2>
 		<ul>

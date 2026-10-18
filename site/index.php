@@ -52,7 +52,8 @@ $html .= <<<'EOD'
 	input[type="email"],
 	input[type="button"],
 	input[type="submit"],
-	#entries {
+	#entries,
+	p {
 		font-family: "Victor Mono Medium", monospace;
 	}
 	form > br,
@@ -275,7 +276,7 @@ $html .= <<<'EOD'
 </head>
 <body>
 	<form method="post" action="submit/">
-		<h1 class="center" style="text-align:center;"><b style="color:hotpink">Hot </b>Pixels Guestbook</h1>
+		<h1 class="center" style="text-align:center;"><span style="font-weight:bold; color:hotpink">Hot </span>Pixels Guestbook</h1>
 		<p>Submissions are automatically printed by <a href="irl">my thermal receipt printer</a> every 10 minutes.
 		<br>
 		<br>I will personally hear, admire, touch, and smell your steaming hot pixels. Please be nice! <b style="color:hotpink">&lt;3</b></p>
@@ -715,6 +716,7 @@ else {
 
 $html .= <<<'EOD'
 	</ul>
+	<p class="center"><code>curl</code> me!</p>
 	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="mailto:&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;">&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;</a></p>
 	<script><!--
 	// this was basic prog enhance so you could click and drag but it got a little out of hand
