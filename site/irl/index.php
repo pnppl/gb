@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	<body>
 		<h1>Hot Pixels IRL</h1>
 		<img src="$pics[1]" alt="most recent photo of the guestbook's corner of honor" width="800" height="1066" title="guestbook corner of honor as of $currDate">
-		<h2>old pixels</h2>
+		<h2>cold pixels</h2>
 		<ul>
 	EOD;
 	for ($i = 2; $i < count($pics) - 2; $i++) {
