@@ -118,5 +118,5 @@ def log(status):
 
 status = poll_and_print().strip()
 log(status)
-if status != 'no new':
+if status != 'no new' && len(status) > 0:
 	post(status)
