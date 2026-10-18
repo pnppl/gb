@@ -7,4 +7,5 @@ gb.pnppl.cc
 
 AGPLv3
 
-Printer driver in `print/zj-58` is from https://github.com/klirichek/zj-58
+
+CUPS driver in `print/zj-58` is from <https://github.com/klirichek/zj-58>. It's not actually used in this project, it's just convenient to have it here since I also run CUPS on the printer server.
