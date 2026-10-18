@@ -136,6 +136,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	fwrite($ip_fp, $date . ' ' . $ip . "\n");
 	fclose($ip_fp);
 
+	echo "guestbook submission successful!";
+
 	header('Location: ../#' . $date);
 	exit();
 }

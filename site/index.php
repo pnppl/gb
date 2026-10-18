@@ -1,8 +1,34 @@
 <?php
-header('Content-Type: text/html');
 $gb_path = "gb.tsv";
 
-echo <<<'EOD'
+$plain = false;
+if (strripos($_SERVER['HTTP_USER_AGENT'] ?? '', 'curl') !== false) {
+	$plain = true;
+}
+if (array_key_exists('plain', $_GET)) {
+	$plain_param = $_GET['plain'] ?? '';
+	if (strripos($plain_param, 'y') !== false || strripos($plain_param, 't') !== false) {
+		$plain = true;
+	}
+	if (strripos($plain_param, 'n') !== false || strripos($plain_param, 'f') !== false) {
+		$plain = false;
+	}
+	if (empty($plain_param)) {
+		$plain = true;
+	}
+}
+
+if ($plain) {
+	header('Content-Type: text/plain');
+}
+else {
+	header('Content-Type: text/html');
+}
+
+$html = '';
+$text = '';
+
+$html .= <<<'EOD'
 <!DOCTYPE html>
 <html>
 <head>
@@ -573,69 +599,121 @@ if (($gb_file = fopen($gb_path, "r")) !== false) {
 		$email_decimal = implode("", array_map(fn($char) => "&#" . ord($char) . ";", str_split($email)));
 		$comment = $entry[4] ?? '';
 		$pic = $entry[5] ?? '';
-		echo <<<EOD
+		$html .= <<<EOD
 				<li id="$date">
 					<a name="$date" id="$date" title="$date">$date_friendly</a>
 					<br>
 
 		EOD;
+		$text .= <<<EOD
+
+			\e[1m$date_friendly\e[0m
+
+			EOD;
+
 		if (strlen($email) > 4) {
-			echo <<<EOD
+			$html .= <<<EOD
 					$name <a href="mailto:$email_decimal">[$email_decimal]</a>
 					<br>
 
 		EOD;
+			$text .= <<<EOD
+					$name [$email]
+
+					EOD;
 		}
 		else {
-			echo <<<EOD
+			$html .= <<<EOD
 					$name
 					<br>
 
 		EOD;
+			$text .= <<<EOD
+					$name
+
+					EOD;
 		}
+
 		if (strlen($url) > 4) {
-			echo <<<EOD
+			$html .= <<<EOD
 					<a href="$url">$url_bare</a>
 					<br>
 
 		EOD;
+			$text .= <<<EOD
+					$url
+
+					EOD;
 		}
+
 		if (strlen($comment) > 0 || strlen($pic) === 256) {
-			echo <<<EOD
+			$html .= <<<EOD
 					<blockquote class="comment">
 
 			EOD;
 
 			if (strlen($comment) > 0) {
-				echo <<<EOD
+				$html .= <<<EOD
 							<p><i>$comment</i></p>
 
 				EOD;
+				$text_comment = html_entity_decode(str_replace("<br>", "\n", $comment));
+				$text .= <<< EOD
+
+							\e[3m$text_comment\e[0m
+
+							EOD;
 			}
 
 			if (strlen($pic) === 256) {
-				echo <<<EOD
+				$html .= <<<EOD
 							<a href="text/?pic=$pic" title="load text version"><img class="gif" src="gif/$date.gif" width="16" height="16" alt="art for post $date"></a>
 
 				EOD;
+				// just copied this from /text/ utf8 mode
+				$text .= "\n┌────────────────────────────────┐\n";
+				for ($i = 0, $y = 0; $i < 256; $i++) {
+					if ($i % 16 == 0) {
+						$text .= '│';
+						if ($i > 0) {
+							$y++;
+						}
+					}
+					if ($pic[$i]) {
+						$text .= "██";
+					}
+					else {
+						$text .= "  ";
+					}
+					if (($i + 1) % 16 == 0) {
+							$text .= "│\n";
+					}
+				}
+				$text .= "└────────────────────────────────┘\n";
 			}
 
-			echo <<<EOD
+			$html .= <<<EOD
 					</blockquote>
 			EOD;
 		}
-		echo <<<EOD
+		$html .= <<<EOD
 				</li>
 				<p class="hr">_ * ~ * _ * ~ * _ * ~ * _ * ~</p>
 			EOD;
+		$text .= <<<EOD
+
+				_ * ~ * _ * ~ * _ * ~ * _ * ~
+
+				EOD;
 	}
 	fclose($gb_file);
 }
 else {
-	echo "\t<b>Can't read guestbook file</b>";
+	$html .= "\t<b>Can't read guestbook file</b>";
+	$text .= "Can't read guestbook file";
 }
 
-echo <<<'EOD'
+$html .= <<<'EOD'
 	</ul>
 	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="mailto:&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;">&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;</a></p>
 	<script><!--
@@ -885,6 +963,34 @@ echo <<<'EOD'
 </body>
 </html>
 EOD;
+
+if ($plain) {
+	echo $text;
+	echo <<<EOD
+
+		\e[1mHow to submit via curl:\e[0m
+
+		1. Make a pixel grid.
+
+		sh -c 'for i in \$(seq 256); do if [ $((i % 16)) = 0 ]; then printf "0\\n"; else printf "0 "; fi; done > pic.txt'
+
+		2. Edit the grid, replacing 0 with 1 where you want to draw a pixel (or the opposite for inverted color).
+
+		\$EDITOR pic.txt
+
+		3. Submit your entry. \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
+
+		sh -c 'eval curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA \$(x=0; for i in \$(cat pic.txt | tr "\\n" " "); do if [ \$i = 1 ]; then printf "%s pixel%s " "-d" "\$x"; fi; x=\$((x + 1)); done) http://gb.pnppl.cc/submit/'
+
+		\e[1mIf you want the HTML:\e[0m
+
+		curl http://gb.pnppl.cc/?plain=f
+
+		EOD;
+}
+else {
+	echo $html;
+}
 
 exit();
 ?>
