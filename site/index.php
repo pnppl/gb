@@ -250,22 +250,24 @@ echo <<<'EOD'
 <body>
 	<form method="post" action="submit/">
 		<h1 class="center" style="text-align:center;"><b style="color:hotpink">Hot </b>Pixels Guestbook</h1>
-		<p>Submissions are automatically printed by <a href="irl.jpg">my thermal receipt printer</a> every 10 minutes.
+		<p>Submissions are automatically printed by <a href="irl">my thermal receipt printer</a> every 10 minutes.
 		<br>
 		<br>I will personally hear, admire, touch, and smell your steaming hot pixels. Please be nice! <b style="color:hotpink">&lt;3</b></p>
-		<p>All fields except CAPTCHA are optional, but you must answer at least one! You can submit once per day (resets at 11:11pm NYC).</p>
+		<p>All fields except CAPTCHA are optional, but you must answer at least one!
 		<br>
-		<label><code>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="text" name="name" placeholder="pnppl" maxlength="100"></label>
+		<br>You can submit once per day (resets at 11:11pm NYC).</p>
 		<br>
-		<label><code>Homepage:&nbsp;</code><input type="url" name="url" placeholder="http://pnppl.cc/" maxlength="400"></label>
+		<label title="optional"><code>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="text" name="name" placeholder="pnppl" maxlength="100"></label>
 		<br>
-		<label><code>Email:&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="email" name="email" placeholder="guestbook@pnppl.cc" maxlength="100"></label>
+		<label title="optional"><code>Homepage:&nbsp;</code><input type="url" name="url" placeholder="http://pnppl.cc/" maxlength="400"></label>
 		<br>
-		<code class="note"><b><i><span class="hide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Email will be published.</i></b></code>
+		<label title="optional"><code>Email:&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="email" name="email" placeholder="guestbook@pnppl.cc" maxlength="100"></label>
 		<br>
-		<label><span style="vertical-align: top"><code>Comment:&nbsp;&nbsp;</code></span><textarea name="comment" placeholder="cool site" maxlength="4000"></textarea></label>
+		<code class="note"><b><i><span class="hide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Optional. Email <b style="font-style:normal">will</b> be published.</i></b></code>
+		<br>
+		<label title="optional"><span style="vertical-align: top"><code>Comment:&nbsp;&nbsp;</code></span><textarea name="comment" placeholder="cool site" maxlength="4000"></textarea></label>
 		<br class="inline">
-		<code>Art:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="checkbox" id="invert" name="invert"><label for="invert"><code>&nbsp;Invert colors</code><br></label>
+		<code title="optional">Art:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="checkbox" id="invert" name="invert"><label for="invert"><code>&nbsp;Invert colors</code><br></label>
 		<br>
 		<div id="pixelwrap">
 			<div id="pixelcheck">
@@ -547,7 +549,7 @@ echo <<<'EOD'
 		<br class="inline">
 		<code class="note"><b><span class="hide">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Whose commonplace is this?</b></code>
 		<br>
-		<label><code>CAPTCHA:&nbsp;&nbsp;</code><input type="text" name="captcha" placeholder="hint: it's 5 letters" width="10" maxlength="40"></label>
+		<label title="required"><code>CAPTCHA<b><a title="required" style="color:hotpink">*</a></b>:&nbsp;</code><input type="text" name="captcha" placeholder="hint: it's 5 letters" width="10" maxlength="40"></label>
 		<br>
 		<code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="submit" value="Submit" id="submit">
 		<br>
