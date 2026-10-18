@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	</head>
 	<body>
 		<h1>Hot Pixels IRL</h1>
-		<img src="$pics[1]" alt="most recent photo of the guestbook's corner of honor" width="800" height="1066" title="guestbook corner of honor as of $currDate">
+		<img src="$pics[1]" alt="most recent photo of guestbook's corner of honor: receipt printer and SBC stuck to wall next to window, with USB cords connected and running down wall; receipts with inscrutable text and scrutable pixel art are stuck to wall next to it" width="800" height="1066" title="guestbook corner of honor as of $currDate">
 		<h2>cold pixels</h2>
 		<ul>
 	EOD;
