@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		img,
 		h1 {
 			width: fit-content;
+			max-width: 100%;
 			height: auto;
 			margin: auto;
 		}
