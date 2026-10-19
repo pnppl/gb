@@ -107,6 +107,7 @@ $html .= <<<'EOD'
 		margin: auto;
 		width:fit-content;
 		display: block;
+		text-align: center;
 	}
 	.hide {
 		display: none;
