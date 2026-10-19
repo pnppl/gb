@@ -15,7 +15,7 @@ $allowed_file = '.my.ip';
 header('Content-Encoding: identity');
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-	header('Content-Type: text/plain');
+	header('Content-Type: text/plain; charset=us-ascii');
 	if (($fp = fopen($status_file, "r")) !== false) {
 		echo "current status of receipt printer:\n";
 		if (filesize($status_file) > 0) {

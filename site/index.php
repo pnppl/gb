@@ -1,28 +1,28 @@
 <?php
 $gb_path = "gb.tsv";
 
-$plain = false;
+$ansi = false;
 if (strripos($_SERVER['HTTP_USER_AGENT'] ?? '', 'curl') !== false) {
-	$plain = true;
+	$ansi = true;
 }
-if (array_key_exists('plain', $_GET)) {
-	$plain_param = $_GET['plain'] ?? '';
-	if (strripos($plain_param, 'y') !== false || strripos($plain_param, 't') !== false) {
-		$plain = true;
+if (array_key_exists('ansi', $_GET)) {
+	$ansi_param = $_GET['ansi'] ?? '';
+	if (strripos($ansi_param, 'y') !== false || strripos($ansi_param, 't') !== false) {
+		$ansi = true;
 	}
-	if (strripos($plain_param, 'n') !== false || strripos($plain_param, 'f') !== false) {
-		$plain = false;
+	if (strripos($ansi_param, 'n') !== false || strripos($ansi_param, 'f') !== false) {
+		$ansi = false;
 	}
-	if (empty($plain_param)) {
-		$plain = true;
+	if (empty($ansi_param)) {
+		$ansi = true;
 	}
 }
 
-if ($plain) {
-	header('Content-Type: text/plain');
+if ($ansi) {
+	header('Content-Type: text/x-ansi; charset=utf-8');
 }
 else {
-	header('Content-Type: text/html');
+	header('Content-Type: text/html; charset=utf-8');
 }
 
 $html = '';
@@ -966,27 +966,29 @@ $html .= <<<'EOD'
 </html>
 EOD;
 
-if ($plain) {
+if ($ansi) {
 	echo $text;
 	echo <<<EOD
 
 		\e[1mHow to submit via curl:\e[0m
 
-		1. Make a pixel grid.
+		# Make a pixel grid.
 
 		sh -c 'for i in \$(seq 256); do if [ $((i % 16)) = 0 ]; then printf "0\\n"; else printf "0 "; fi; done > pic.txt'
 
-		2. Edit the grid, replacing 0 with 1 where you want to draw a pixel (or the opposite for inverted color).
+		# Edit the grid, replacing 0 with 1 where you want to draw a pixel (or the opposite for inverted color).
 
 		\$EDITOR pic.txt
 
-		3. Submit your entry. \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
+		# Submit your entry. \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
 
-		sh -c 'eval curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA \$(x=0; for i in \$(cat pic.txt | tr "\\n" " "); do if [ \$i = 1 ]; then printf "%s pixel%s " "-d" "\$x"; fi; x=\$((x + 1)); done) http://gb.pnppl.cc/submit/'
+		sh -c 'eval curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA \$(x=0; for i in \$(tr < pic.txt "\\n" " "); do if [ "\$i" = 1 ]; then printf "%s pixel%s " "-d" "\$x"; fi; x=\$((x + 1)); done) http://gb.pnppl.cc/submit/'
+
+		_ * ~ * _ * ~ * _ * ~ * _ * ~
 
 		\e[1mIf you want the HTML:\e[0m
 
-		curl http://gb.pnppl.cc/?plain=f
+		curl http://gb.pnppl.cc/?ansi=f
 
 		EOD;
 }
