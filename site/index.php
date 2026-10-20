@@ -295,7 +295,7 @@ $html .= <<<'EOD'
 		<br>
 		<label title="optional"><span style="vertical-align: top"><code>Comment:&nbsp;&nbsp;</code></span><textarea name="comment" placeholder="cool site" maxlength="4000"></textarea></label>
 		<br class="inline">
-		<code title="optional">Art:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="checkbox" id="invert" name="invert"><label for="invert"><code>&nbsp;Invert colors</code><br></label>
+		<code title="optional" style="cursor:default">Art:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><input type="checkbox" id="invert" name="invert"><label for="invert"><code>&nbsp;Invert colors</code><br></label>
 		<br>
 		<div id="pixelwrap">
 			<div id="pixelcheck">

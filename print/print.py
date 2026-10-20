@@ -44,7 +44,7 @@ def poll_and_print():
 	# fetch from timestamp
 	new = requests.get(f"{URL}new/?utime={LAST}").text
 	if len(new) <= FIELD_COUNT:
-		return "no new"
+		return "no new... ready."
 
 	# parse tsv
 	entries_raw = new.split("\n")
@@ -118,5 +118,7 @@ def log(status):
 
 status = poll_and_print().strip()
 log(status)
-if status != 'no new' and len(status) > 0:
+if len(status) == 0:
+	post("error")
+else:
 	post(status)
