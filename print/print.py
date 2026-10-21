@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from escpos.printer import Usb
 from PIL import Image
 import textwrap
@@ -93,7 +94,7 @@ def poll_and_print():
 		print_contents += "\n"
 		flip_print(print_contents)
 
-		flip_print(f"{datetime.fromtimestamp(int(entry[UTIME])).strftime(TIME_FMT_PRINT)}")
+		flip_print(f"{datetime.fromtimestamp(int(entry[UTIME]), tz=ZoneInfo("America/New_York")).strftime(TIME_FMT_PRINT)}")
 		PRINTER.textln('')
 
 		LAST = entry[UTIME]
