@@ -14,6 +14,7 @@ LOG = "print.log"
 PRINTER = Usb(0x6868, 0x0200, 0, profile="POS-5890")
 FULL_SIZE_TXT = 256
 FULL_SIZE_IMG = 384
+ZONE = ZoneInfo("America/New_York")
 
 FIELD_COUNT = 6
 UTIME = 0
@@ -94,7 +95,7 @@ def poll_and_print():
 		print_contents += "\n"
 		flip_print(print_contents)
 
-		flip_print(f"{datetime.fromtimestamp(int(entry[UTIME]), tz=ZoneInfo("America/New_York")).strftime(TIME_FMT_PRINT)}")
+		flip_print(f"{datetime.fromtimestamp(int(entry[UTIME]), ZONE).strftime(TIME_FMT_PRINT)}")
 		PRINTER.textln('')
 
 		LAST = entry[UTIME]
@@ -118,6 +119,13 @@ def log(status):
 		file.write(str(status))
 
 status = poll_and_print().strip()
+
+now = datetime.now(ZONE)
+if now.hour == 3:
+	status = status + "entering quiet hours until 8am..."
+elif now.hour == 8 and now.minute < 10:
+	status = "exiting quiet hours...\n" + status
+
 log(status)
 if len(status) == 0:
 	post("error")
