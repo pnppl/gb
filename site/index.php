@@ -94,7 +94,6 @@ $html .= <<<'EOD'
 	}
 	.note {
 		font-size: 0.9em;
-//		margin-left: 11ch;
 		margin: 0.25em 0 0.5em 6em;
 		display: block;
 	}
@@ -189,7 +188,7 @@ $html .= <<<'EOD'
 		overflow-wrap: anywhere;
 	}
 	#entries li {
-		max-width: 20em;
+		max-width: 18em;
 	}
 	form a {
 		color: #00CADB;
