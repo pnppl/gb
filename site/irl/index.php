@@ -1,7 +1,7 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	$pics = scandir('.', SCANDIR_SORT_DESCENDING);
-	$currDate = substr($pics[1], 0, -8);
+	$currDate = substr($pics[2], 0, -8);
 	echo <<<EOD
 	<!DOCTYPE html>
 	<html>
@@ -15,8 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 			background: #eee;
 			font-family: "Victor Mono", monospace;
 			padding: 0.25em;
-		}
-		img {
 		}
 		body,
 		img,
@@ -35,11 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	</head>
 	<body>
 		<h1><a href=".."><span style="font-weight:bold; color:hotpink">Hot</span> Pixels</a> IRL</h1>
-		<img src="$pics[1]" alt="most recent photo of guestbook's corner of honor: receipt printer and SBC stuck to wall next to window, with USB cords connected and running down wall; receipts with inscrutable text and scrutable pixel art are stuck to wall next to it" width="800" height="1066" title="guestbook corner of honor as of $currDate">
+		<img style="width:800px" src="irl-closeup.jpg" alt="closeup of printer which has been decorated with stickers - a pink party hat and the words HOT PIXELS guestbook" width="800" height="600" title="printer closeup">
+		<br>
+		<img src="$pics[2]" alt="most recent photo of guestbook's corner of honor: receipt printer and SBC stuck to wall next to window, with USB cords connected and running down wall; receipts with inscrutable text and scrutable pixel art are stuck to wall next to it" width="800" height="1066" title="guestbook corner of honor as of $currDate">
 		<h2>cold pixels</h2>
 		<ul>
 	EOD;
-	for ($i = 2; $i < count($pics) - 2; $i++) {
+	for ($i = 3; $i < count($pics) - 2; $i++) {
 		echo "<li><a href=\"$pics[$i]\">$pics[$i]</a></li>";
 	}
 	echo <<<EOD
