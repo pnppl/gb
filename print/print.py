@@ -122,7 +122,7 @@ status = poll_and_print().strip()
 
 now = datetime.now(ZONE)
 if now.hour == 3:
-	status = status + "entering quiet hours until 8am..."
+	status = status + "\nentering quiet hours until 8am..."
 elif now.hour == 8 and now.minute < 10:
 	status = "exiting quiet hours...\n" + status
 
