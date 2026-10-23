@@ -55,6 +55,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 		.space {
 			display: none;
 		}
+		p {
+			line-height: 0;
+		}
+		#space:checked ~ p {
+			line-height: initial;
+		}
 		#space:checked ~ p .space {
 			display: inline;
 		}
