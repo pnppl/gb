@@ -57,7 +57,17 @@ else {
 header($header);
 
 $pic = $_GET['pic'] ?? '';
-if (empty($pic) || strlen($pic) !== 256) {
+// return random if no pic supplied
+if (empty($pic)) {
+	$gb_path = "../gb.tsv";
+	$gb_file = fopen($gb_path, "r") or die("No pic supplied and can't read guestbook tsv");
+	$gb_str = fread($gb_file, filesize($gb_path)) or die("No pic supplied and can't read guestbook tsv");;
+	fclose($gb_file);
+	$gb_entries = explode("\n", rtrim($gb_str));
+	$gb_entry = $gb_entries[array_rand($gb_entries)];
+	$pic = end(explode("\t", $gb_entry));
+}
+if (strlen($pic) !== 256) {
 	die("invalid image");
 }
 

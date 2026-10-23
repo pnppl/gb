@@ -718,7 +718,7 @@ else {
 $html .= <<<'EOD'
 	</ul>
 	<p class="center"><code>curl</code> me!</p>
-	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="mailto:&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;">&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;</a></p>
+	<p class="center"><a href="https://git.gay/pnppl/gb/">AGPLv3</a> &#183; <a href="status">printer status</a> &#183; <a href="text/">random</a> &#183; <a href="mailto:&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;">&#103;&#98;&#64;&#112;&#110;&#112;&#112;&#108;&#46;&#99;&#99;</a></p>
 	<script><!--
 	// this was basic prog enhance so you could click and drag but it got a little out of hand
 
