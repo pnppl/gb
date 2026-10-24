@@ -972,11 +972,12 @@ if ($ansi) {
 
 		\e[1mHow to submit via curl:\e[0m
 
-		# Make a pixel grid.
+		# Get a pixel grid.
 
-		sh -c 'for i in \$(seq 256); do if [ $((i % 16)) = 0 ]; then printf "0\\n"; else printf "0 "; fi; done > pic.txt'
+		curl http://gb.pnppl.cc/grid0 > pic.txt  # white BG
+		curl http://gb.pnppl.cc/grid1 > pic.txt  # black BG
 
-		# Edit the grid, replacing 0 with 1 where you want to draw a pixel (or the opposite for inverted color).
+		# Edit the grid, drawing white pixels with 0 and black pixels with 1.
 
 		\$EDITOR pic.txt
 
