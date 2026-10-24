@@ -1,8 +1,14 @@
 <?php
-// file locations
-$tsv_file = '../gb.tsv';
+// returns tsv entries newer than ?utime
 
+$tsv_file = '../gb.tsv';
 $utime = $_GET['utime'] ?? 0;
+
+// if no utime supplied, return today's entries
+if ($utime == 0) {
+	$zone = new DateTimeZone('America/New_York');
+	$utime = new DateTime('today', $zone)->getTimestamp();
+}
 if ($utime < 1777777777 || $utime > 9999999999) {
 	die('did not receive unix timestamp');
 }
