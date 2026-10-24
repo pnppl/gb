@@ -39,12 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (mb_strlen($name, 'UTF-8') > 100) {
 		die('name too long');
 	}
-	if (str_contains($name, 'nigger')) {
-		$bans_fp = fopen($bans_file, "a") or die('go fuck yourself!');
-		fwrite($bans_fp, $ip . "\n") or die('go fuck yourself!!');
-		fclose($bans_fp);
-		die('go fuck yourself');
-	}
 
 	$url = filter_var($_POST['url'] ?? '', FILTER_VALIDATE_URL) ?: '';
 	if (mb_strlen($url, 'UTF-8') > 400) {
@@ -60,19 +54,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (mb_strlen($comment, 'UTF-8') > 4000) {
 		die('comment too long');
 	}
-	if (str_contains($comment, 'nigger')) {
-		$bans_fp = fopen($bans_file, "a") or die('fuck you!');
-		fwrite($bans_fp, $ip . "\n") or die('fuck you!!');
-		fclose($bans_fp);
-		die('fuck you');
-	}
 
 	$invert = isset($_POST['invert']) ? true : false;
 
+	$pic = $_POST['pic'] ?? '';
 	$art = array_fill(0, 256, false);
-	for ($i = 0; $i < 256; $i++) {
-		if (isset($_POST['pixel' . $i])) {
-			$art[$i] = true;
+	if (strlen($pic) == 256) {
+		$pic_arr = str_split($pic);
+		for ($i = 0; $i < 256; $i++) {
+			if ($pic_arr[$i] == 0) {
+				$art[$i] = false;
+			}
+			else {
+				$art[$i] = true;
+			}
+		}
+	}
+	else {
+		for ($i = 0; $i < 256; $i++) {
+			if (isset($_POST['pixel' . $i])) {
+				$art[$i] = true;
+			}
 		}
 	}
 

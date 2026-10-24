@@ -970,26 +970,22 @@ if ($ansi) {
 	echo $text;
 	echo <<<EOD
 
-		\e[1mHow to submit via curl:\e[0m
+		\e[1m# How to submit via curl:\e[0m
 
-		# Get a pixel grid.
+		 # Get a pixel grid
+		 curl http://gb.pnppl.cc/grid0 > pic.txt  # white BG
+		 curl http://gb.pnppl.cc/grid1 > pic.txt  # black BG
 
-		curl http://gb.pnppl.cc/grid0 > pic.txt  # white BG
-		curl http://gb.pnppl.cc/grid1 > pic.txt  # black BG
+		 # Edit the grid, drawing white pixels with 0 and black pixels with 1
+		 \$EDITOR pic.txt
 
-		# Edit the grid, drawing white pixels with 0 and black pixels with 1.
+		 # Submit your entry
+		 # \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
+		 curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA -d pic=\$(tr < pic.txt -cd '[01]') http://gb.pnppl.cc/submit/
 
-		\$EDITOR pic.txt
+		\e[1m# If you want the HTML:\e[0m
 
-		# Submit your entry. \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
-
-		sh -c 'eval curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA \$(x=0; for i in \$(tr < pic.txt "\\n" " "); do if [ "\$i" = 1 ]; then printf "%s pixel%s " "-d" "\$x"; fi; x=\$((x + 1)); done) http://gb.pnppl.cc/submit/'
-
-		_ * ~ * _ * ~ * _ * ~ * _ * ~
-
-		\e[1mIf you want the HTML:\e[0m
-
-		curl http://gb.pnppl.cc/?ansi=f
+		 curl http://gb.pnppl.cc/?ansi=f
 
 		EOD;
 }
