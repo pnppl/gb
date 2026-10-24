@@ -17,7 +17,7 @@ header('Content-Encoding: identity');
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 	header('Content-Type: text/plain; charset=us-ascii');
 	if (($fp = fopen($status_file, "r")) !== false) {
-		echo "current status of receipt printer:\n";
+		echo "current status of receipt printer:\n\n";
 		if (filesize($status_file) > 0) {
 			echo fread($fp, filesize($status_file));
 		}
