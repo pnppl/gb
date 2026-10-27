@@ -280,7 +280,7 @@ $html .= <<<'EOD'
 		<p>Submissions are automatically printed by <a href="irl">my thermal receipt printer</a> every 10 minutes.
 		<br>
 		<br>I will personally hear, admire, touch, and smell <a href="gallery">your steaming hot pixels</a>. Please be nice! <b style="color:hotpink">&lt;3</b></p>
-		<p>All fields except CAPTCHA are optional, but you must answer at least one!
+		<p>All fields except CAPTCHA are optional (including art), but you must answer at least one!
 		<br>
 		<br>You can submit once per day (resets at 11:11pm NYC).</p>
 		<br>
