@@ -972,20 +972,20 @@ if ($ansi) {
 
 		\e[1m# How to submit via curl:\e[0m
 
-		 # Get a pixel grid
-		 curl http://gb.pnppl.cc/grid0 > pic.txt  # white BG
-		 curl http://gb.pnppl.cc/grid1 > pic.txt  # black BG
+		## Get a pixel grid
+		curl http://gb.pnppl.cc/grid0 > pic.txt  # white BG
+		curl http://gb.pnppl.cc/grid1 > pic.txt  # black BG
 
-		 # Edit the grid, drawing white pixels with 0 and black pixels with 1
-		 \$EDITOR pic.txt
+		## Edit the grid, drawing white pixels with 0 and black pixels with 1
+		\$EDITOR pic.txt
 
-		 # Submit your entry
-		 # \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
-		 curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA -d pic=\$(tr < pic.txt -cd '[01]') http://gb.pnppl.cc/submit/
+		## Submit your entry
+		### \e[1mEmail will be public.\e[0m All fields optional. CAPTCHA = name of site owner (5 letters).
+		curl -d name=NAME -d url=HOMEPAGE -d email=EMAIL -d comment=COMMENT -d captcha=CAPTCHA -d pic=\$(tr < pic.txt -cd '[01]') http://gb.pnppl.cc/submit/
 
 		\e[1m# If you want the HTML:\e[0m
 
-		 curl http://gb.pnppl.cc/?ansi=f
+		curl http://gb.pnppl.cc/?ansi=f
 
 		EOD;
 }
